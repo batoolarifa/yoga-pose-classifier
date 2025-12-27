@@ -1,0 +1,174 @@
+/* ========== GLOBAL ========== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex container for sticky footer */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full viewport height */
+}
+
+/* Content area grows and pushes footer down */
+.content-wrap {
+    flex: 1;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(90deg, #6a00f4, #b300ff);
+    color: white;
+    padding: 30px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* ========== UPLOAD SECTION ========== */
+.upload-container {
+    margin-top: 40px;
+}
+
+.upload-label {
+    background-color: #2e2e2e;
+    border: 2px dashed #6a00f4;
+    border-radius: 10px;
+    padding: 20px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #aaa;
+}
+
+.upload-label:hover {
+    background-color: #3b3b3b;
+    border-color: #b300ff;
+    color: white;
+}
+
+.upload-label span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #6a00f4, #b300ff);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #6a00f4;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #b300ff;
+}
+
+/* ========== RESULT SECTION ========== */
+.result-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #121212;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(106,0,244,0.4);
+}
+
+.uploaded-img {
+    max-width: 300px;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(179,0,255,0.6);
+}
+
+.result-text, .result-confidence {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #c59fff;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: #111;
+    color: #888;
+    padding: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* ========== TOAST NOTIFICATION ========== */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #6a00f4;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 15px 20px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 1em;
+    box-shadow: 0 0 15px rgba(179, 0, 255, 0.6);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Clear button styles, explicitly matching Predict button */
+#clearBtn {
+    margin-top: 20px;
+    background: #3e3e3e; /* Greyish background, only difference */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #6a00f4;
+}
+
+
+#clearBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #b300ff;
+}

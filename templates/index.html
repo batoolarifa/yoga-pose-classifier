@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Pose Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">✅ Image selected successfully!</div>
+
+        <header>
+            <h1>🧘 Yoga Pose Classifier</h1>
+            <p>Upload your yoga pose image to identify its type.</p>
+        </header>
+
+
+        <main class="content-wrap">
+
+            <div class="upload-container">
+                <form method="POST" enctype="multipart/form-data" id="uploadForm">
+                    <label class="upload-label">
+                        <span id="choose-text">Choose an Image</span>
+                        <input type="file" name="file" accept="image/*" required id="fileInput">
+                    </label>
+                    <p id="upload-msg" style="color: #6a00f4; margin-top: 10px; display: none;">
+                        ✅ Image selected!
+                    </p>
+                    <button type="submit"  style="margin-left: 5px;">Predict Pose</button>
+                </form>
+            </div>
+
+            {% if filename %}
+            <div class="result-container">
+                <h2>Prediction Result</h2>
+                <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="uploaded-img">
+                <p class="result-text"><strong>Pose:</strong> {{ label }}</p>
+                <p class="result-confidence"><strong>Confidence:</strong> {{ confidence }}</p>
+            </div>
+            {% endif %}
+            <p> </p>
+            <p> </p>
+        </main>
+
+        <footer>
+            <p>Made with 💜 using DenseNet121 | © 2025 Yoga Pose Classifier</p>
+        </footer>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const toast = document.getElementById('toast');
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                toast.classList.add('show');
+
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
